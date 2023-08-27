@@ -30,7 +30,7 @@ void remove_loop(node * &head){
     while(fast!=NULL && fast->next!=NULL){
         slow=slow->next;
         fast=fast->next->next;
-        if(slow==fast){
+        if(slow==fast || fast->next==slow){
             node *temp=slow;
             while(temp->next!=slow){
                 temp=temp->next;
@@ -39,6 +39,13 @@ void remove_loop(node * &head){
             return;
         }
     }
+}
+void display(node *head){
+    while(head!=NULL){
+        cout<<head->data<<" ";
+        head=head->next;
+    }
+    cout<<"end";
 }
 int main()
 {
@@ -51,10 +58,11 @@ int main()
     a1->next=a2;
     a2->next=a3;
     
-    a3->next=a4;
-    a4->next=a2;
+    a3->next=a2;
     remove_loop(head);
     cout<<check_loop(head);
+    cout<<endl;
+    display(head);
     
     
     
