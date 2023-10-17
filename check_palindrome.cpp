@@ -1,7 +1,7 @@
 node * mid(node *head){
     
     node *slow=head;
-    node *fast=head;
+    node *fast=head->next;
     while(fast && fast->next){
         slow=slow->next;
         fast=fast->next->next;
