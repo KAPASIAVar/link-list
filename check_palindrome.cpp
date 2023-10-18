@@ -1,3 +1,35 @@
+#include<iostream>
+using namespace std;
+class node{
+    public:
+    int data;
+    node *next;
+    node(int data){
+        this->data=data;
+        this->next=NULL;
+    }
+};
+void insert(node * &head,int data){
+    if(head==NULL){
+        node *temp=new node(data);
+        head=temp;
+
+    }
+    else{
+        node *temp=head;
+        while(temp->next){temp=temp->next;}
+        node *p=new node(data);
+        temp->next=p;
+    }
+}
+void display(node * head){
+    node *temp=head;
+    while(temp!=NULL){
+        cout<<temp->data<<"->";
+        temp=temp->next;
+    }
+    cout<<"END"<<endl;
+}
 node * mid(node *head){
     
     node *slow=head;
